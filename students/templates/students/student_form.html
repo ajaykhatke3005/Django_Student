@@ -1,0 +1,7 @@
+<h2>{{ form.instance.id|yesno:"Edit Student,Add Student" }}</h2>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Save</button>
+</form>
+<a href="{% url 'student_list' %}">⬅ Back to list</a>
