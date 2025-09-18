@@ -1,7 +1,47 @@
-<h2>Delete Student</h2>
-<p>Are you sure you want to delete {{ student.name }}?</p>
-<form method="POST">
-  {% csrf_token %}
-  <button type="submit">Yes, Delete</button>
-</form>
-<a href="{% url 'student_list' %}">Cancel</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            margin: 0; padding: 0;
+        }
+        .container {
+            width: 40%;
+            margin: 80px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        h3 { color: #e74c3c; }
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            display: inline-block;
+        }
+        .delete { background: #e74c3c; }
+        .cancel { background: #555; }
+        .delete:hover { background: #c0392b; }
+        .cancel:hover { background: #333; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h3>⚠️ Confirm Delete</h3>
+    <p>Are you sure you want to delete <strong>{{ student.name }}</strong>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn delete">🗑 Yes, Delete</button>
+        <a href="{% url 'student_list' %}" class="btn cancel">⬅ Cancel</a>
+    </form>
+</div>
+</body>
+</html>
